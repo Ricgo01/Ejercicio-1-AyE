@@ -32,8 +32,9 @@ public class Main {
 			pr("Menu de Radio");
 			pr("1. Encender Radio");
 			pr("2. Volumen");
-			pr("3. ");
+			pr("3. Seleccionar Estacion");
 			pr("4. Guardar Estacion");
+			pr("5. Poner Favorito");
 			
 			pr("Seleccione una opcion \n >");
 			
@@ -48,9 +49,23 @@ public class Main {
 					break;
 					
 				case 3:
+					System.out.println("Ingrese la banda que desea utilizar: \n 1. FM \n 2. AM");
+					int banda = scanner.nextInt();
+					System.out.println("Ingrese la estacion que desea utilizar: ");
+					float estacion = scanner.nextFloat();
+					radio.setEstacion(estacion, banda);
 					break;
 					
 				case 4:
+					System.out.println("Ingrese el numero de boton que desea utilizar: ");
+					int boton = scanner.nextInt();
+					radio.guardarEstacion(radio.getEstacion(),radio.getBanda(),boton);
+
+					break;
+				case 5:
+					System.out.println("Ingrese el numero de boton que desea utilizar: ");
+					int botonFav = scanner.nextInt();
+					radio.recuperarEstacion(botonFav);
 					break;
 			
 		

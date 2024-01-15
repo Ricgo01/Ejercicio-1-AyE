@@ -15,6 +15,7 @@
  *  
  */
 
+import java.lang.reflect.Array;
 
 public class Radio implements Radio_30 {
 
@@ -23,7 +24,10 @@ public class Radio implements Radio_30 {
 	private int banda;
 	private float estacion; 
 	private int volumen;
-
+	float[] favoritos = new float[12];
+	int[] favoritosB = new int[12];
+	
+	
 	
 	
 	
@@ -41,7 +45,35 @@ public class Radio implements Radio_30 {
 
 	@Override
 	public void setEstacion(float emisora, int banda) {
-		// TODO Auto-generated method stub
+		String emisoraS = String.valueOf(emisora);
+		int punto = emisoraS.indexOf(".");
+		if (banda == 1) {
+			int decimal = Integer.parseInt(emisoraS.substring(punto+1));
+			if (decimal % 2 == 0) {
+				emisora = emisora + 0.1f;
+			}
+			if (emisora < 87.9) {
+				emisora = 87.9f;
+			} else if (emisora > 107.9) {
+				emisora = 107.9f;
+			} 
+			this.estacion = emisora;
+			this.banda = banda;
+			
+		}
+		else if (banda == 0) {
+			int emisoraI = Integer.parseInt(emisoraS.substring(0, punto - 1));
+			emisora = emisoraI * 10;
+			if (emisoraI < 530) {
+				emisoraI = 530;
+			} else if (emisoraI > 1610) {
+				emisoraI = 1610;
+			} 
+			emisora = emisoraI;
+			this.estacion = emisora;
+			this.banda = banda;
+		}
+		
 		
 	}
 
@@ -53,8 +85,7 @@ public class Radio implements Radio_30 {
 
 	@Override
 	public float getEstacion() {
-		// TODO Auto-generated method stub
-		return 0;
+		return estacion;
 	}
 
 	@Override
@@ -71,14 +102,21 @@ public class Radio implements Radio_30 {
 
 	@Override
 	public void guardarEstacion(float emisora, int banda, int indice) {
-		// TODO Auto-generated method stub
+		indice = indice - 1;
+		favoritos[indice] = emisora;
+		favoritosB[indice] = banda;
 		
 	}
 
 	@Override
 	public float recuperarEstacion(int indice) {
-		// TODO Auto-generated method stub
-		return 0;
+		estacion = favoritos[indice];
+		banda = favoritosB[indice];
+		return estacion;
 	}
+
+	
+
+
     
 }
