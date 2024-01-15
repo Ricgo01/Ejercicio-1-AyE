@@ -18,6 +18,15 @@
 
 public class Radio implements Radio_30 {
 
+	private boolean encendido;
+	protected String marca;
+	private int banda;
+	private float estacion; 
+	private int volumen;
+
+	
+	
+	
 	@Override
 	public void setEncendido(boolean estado) {
 		// TODO Auto-generated method stub

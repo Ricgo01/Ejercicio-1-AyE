@@ -29,9 +29,11 @@ public class Main {
 		
 		while(!salir) {
 			pr("======= RADIO ======");
-			pr("1.");
-			pr("2.");
-			pr("3.");
+			pr("Menu de Radio");
+			pr("1. Encender Radio");
+			pr("2. Volumen");
+			pr("3. ");
+			pr("4. Guardar Estacion");
 			
 			pr("Seleccione una opcion \n >");
 			
