@@ -116,7 +116,7 @@ public class Radio implements Radio_30 {
 	@Override
 	public int getBanda() {
 		// TODO Auto-generated method stub
-		return 0;
+		return banda;
 	}
 
 	@Override
@@ -131,12 +131,21 @@ public class Radio implements Radio_30 {
 		favoritos[indice] = emisora;
 		favoritosB[indice] = banda;
 		
+		pr("El indice " + indice);
 		pr("La emisora " + emisora);
-		pr("en la banda " + banda);
+		String nom;
+		if(banda == 1) {
+			nom = "FM";
+		}
+		else {
+			nom = "AM";
+		}
+		pr("en la banda " + nom);
 	}
 
 	@Override
 	public float recuperarEstacion(int indice) {
+		indice = indice - 1;
 		estacion = favoritos[indice];
 		banda = favoritosB[indice];
 		pr("" + indice);

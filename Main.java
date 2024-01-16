@@ -57,15 +57,27 @@ public class Main {
 					break;
 					
 				case 4:
-					System.out.println("Ingrese el numero de boton que desea utilizar: ");
+					System.out.println("Ingrese el numero de boton que desea utilizar: (1-10)");
 					int boton = scanner.nextInt();
-					radio.guardarEstacion(radio.getEstacion(),radio.getBanda(),boton);
+					
+					if(boton >= 0 && boton <= 10) {
+						radio.guardarEstacion(radio.getEstacion(),radio.getBanda(),boton);
+					}
+					else {
+						pr("El numero ingresado esta fuera de los limites");
+					}
 
 					break;
 				case 5:
-					System.out.println("Ingrese el numero de boton que desea utilizar: ");
+					System.out.println("Ingrese el numero de boton que desea utilizar: (1-10)");
 					int botonFav = scanner.nextInt();
-					radio.recuperarEstacion(botonFav);
+					if(botonFav >= 0 && botonFav <= 10) {
+						radio.recuperarEstacion(botonFav);
+					}
+					else {
+						pr("El numero ingresado esta fuera de los limites");
+					}
+
 					break;
 			
 		
