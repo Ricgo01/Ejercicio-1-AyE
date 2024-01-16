@@ -45,7 +45,7 @@ public class Radio implements Radio_30 {
 	public void subirVolumen() {
 		if (volumen < 100){
 			volumen = volumen + 5;
-			pr("El volumen actual es" + volumen + " %");
+			pr("El volumen actual es " + volumen + " %");
 		} else{
 			pr("El volumen ya llego a el maximo");
 		}
