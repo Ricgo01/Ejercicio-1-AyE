@@ -27,10 +27,40 @@ public class Main {
 		
 		boolean salir = false;
 		
+		while(!radio.getEncendido()) {
+            pr("-- Bienvenido al Menu Principal --");
+            pr("\n");
+            pr("1. Encender Radio");
+            pr("2. Salir");
+
+            pr("Seleccionar una opcion \n > ");
+
+            int opcion = scanner.nextInt();
+
+            switch(opcion) {
+
+                case 1:
+                    //estado = true;
+                    pr("la radio ta encendia");
+                    radio.setEncendido(true);
+                    radio.getEncendido();
+                    pr(" estado "  + radio.getEncendido());
+                    break;
+
+                case 2:
+                	pr("Gracias por utilizar la radio! ");
+                	salir = true;
+                	radio.setEncendido(true);
+                    break;
+            }
+            
+		}
+		
+		
 		while(!salir) {
 			pr("======= RADIO ======");
 			pr("Menu de Radio");
-			pr("1. Encender Radio");
+			pr("1. Apagar Radio");
 			pr("2. Volumen");
 			pr("3. Seleccionar Estacion");
 			pr("4. Guardar Estacion");
@@ -43,6 +73,9 @@ public class Main {
 			switch(opcion) {
 				
 				case 1: 
+					radio.setEncendido(false);
+					pr("Se apago la radio");
+					salir = true;
 					break;
 					
 				case 2:

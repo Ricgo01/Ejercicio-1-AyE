@@ -34,7 +34,7 @@ public class Radio implements Radio_30 {
 	@Override
 	public void setEncendido(boolean estado) {
 		// TODO Auto-generated method stub
-		
+		this.encendido = estado;
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public class Radio implements Radio_30 {
 
 	public void subirVolumen() {
 		if (volumen < 100){
-			volumen++;
-			pr("El volumen actual es" + volumen + "%");
+			volumen = volumen + 5;
+			pr("El volumen actual es" + volumen + " %");
 		} else{
 			pr("El volumen ya llego a el maximo");
 		}
@@ -53,8 +53,8 @@ public class Radio implements Radio_30 {
 
 	public void bajarVolumen() {
 		if (volumen > 0){
-			volumen--;
-			pr("El volumen actual es " + volumen + "%");
+			volumen = volumen + 5;
+			pr("El volumen actual es " + volumen +  "%");
 			}else {
 				pr("El volumen ya llego al minimo");
 			}
@@ -122,7 +122,7 @@ public class Radio implements Radio_30 {
 	@Override
 	public boolean getEncendido() {
 		// TODO Auto-generated method stub
-		return false;
+		return encendido;
 	}
 
 	@Override
