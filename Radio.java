@@ -47,6 +47,7 @@ public class Radio implements Radio_30 {
 	public void setEstacion(float emisora, int banda) {
 		String emisoraS = String.valueOf(emisora);
 		int punto = emisoraS.indexOf(".");
+		//FM
 		if (banda == 1) {
 			int decimal = Integer.parseInt(emisoraS.substring(punto+1));
 			if (decimal % 2 == 0) {
@@ -60,8 +61,22 @@ public class Radio implements Radio_30 {
 			this.estacion = emisora;
 			this.banda = banda;
 			
+			//Print 
+			String nom;
+			if(banda == 1) {
+				nom = "FM";
+			}
+			else {
+				nom = "AM";
+			}
+			
+			pr("La banda seleccionada fue: " + nom );
+			pr("La emisora sonando es: " + emisora);
+			
+			
 		}
-		else if (banda == 0) {
+		//AM
+		else if (banda == 2) {
 			int emisoraI = Integer.parseInt(emisoraS.substring(0, punto - 1));
 			emisora = emisoraI * 10;
 			if (emisoraI < 530) {
@@ -72,6 +87,16 @@ public class Radio implements Radio_30 {
 			emisora = emisoraI;
 			this.estacion = emisora;
 			this.banda = banda;
+			
+			String nom;
+			if(banda == 1) {
+				nom = "FM";
+			}
+			else {
+				nom = "AM";
+			}
+			pr("La banda seleccionada fue: " + nom );
+			pr("La emisora sonando es: " + emisora);
 		}
 		
 		
@@ -106,17 +131,32 @@ public class Radio implements Radio_30 {
 		favoritos[indice] = emisora;
 		favoritosB[indice] = banda;
 		
+		pr("La emisora " + emisora);
+		pr("en la banda " + banda);
 	}
 
 	@Override
 	public float recuperarEstacion(int indice) {
 		estacion = favoritos[indice];
 		banda = favoritosB[indice];
+		pr("" + indice);
+		pr("La estacion " + estacion + " esta sonando");
 		return estacion;
+		
 	}
 
 	
 
-
+	 /**
+	  * Método privado utilizado para imprimir un mensaje en la consola.
+	  *
+	  * Este método imprime el mensaje proporcionado como parámetro en la consola estándar.
+	  * Se utiliza para simplificar la impresión de mensajes en varias partes del código.
+	  *
+	  * @param x El mensaje que se desea imprimir en la consola.
+	  */
+	 private static void pr(String x) {
+			System.out.println(x);
+		}
     
 }
