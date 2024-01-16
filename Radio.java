@@ -39,8 +39,25 @@ public class Radio implements Radio_30 {
 
 	@Override
 	public void setVolumen(int volumen) {
-		// TODO Auto-generated method stub
-		
+		this.volumen = volumen;
+	}
+
+	public void subirVolumen() {
+		if (volumen < 100){
+			volumen++;
+			pr("El volumen actual es" + volumen + "%");
+		} else{
+			pr("El volumen ya llego a el maximo");
+		}
+	}
+
+	public void bajarVolumen() {
+		if (volumen > 0){
+			volumen--;
+			pr("El volumen actual es " + volumen + "%");
+			}else {
+				pr("El volumen ya llego al minimo");
+			}
 	}
 
 	@Override

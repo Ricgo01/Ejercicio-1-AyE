@@ -46,6 +46,23 @@ public class Main {
 					break;
 					
 				case 2:
+				pr("1. Subir Volumen");
+				pr("2. Bajar Volumen");
+				int opcionVolumen = scanner.nextInt();
+
+				switch (opcionVolumen) {
+					case 1:
+						radio.subirVolumen();
+						break;
+
+					case 2:
+						radio.bajarVolumen();
+						break;
+
+					default:
+						pr("Opcion no valida para controlar el volumen");
+						break;
+				}
 					break;
 					
 				case 3:
