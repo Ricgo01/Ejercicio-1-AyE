@@ -26,8 +26,8 @@ public class Radio implements Radio_30 {
 
 	private boolean encendido;
 	protected String marca;
-	private int banda;
-	private float estacion; 
+	private int banda = 1;
+	private float estacion = 87.9f;; 
 	private int volumen;
 	float[] favoritos = new float[12];
 	int[] favoritosB = new int[12];
