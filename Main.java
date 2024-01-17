@@ -19,6 +19,13 @@ import java.util.Scanner;
 
 
 public class Main {
+	/**
+     * Método principal que ejecuta la aplicación de la radio.
+     * Este método crea una instancia de la clase Radio y maneja la interacción del usuario con el menú de la radio.
+     * Permite al usuario realizar diversas acciones como encender/apagar la radio, ajustar volumen, cambiar de estación, etc.
+     * 
+     * @param args Argumentos de la línea de comandos (no utilizados en esta aplicación).
+     */
 	public static void main(String[] args){
 		
 		Scanner scanner = new Scanner(System.in);

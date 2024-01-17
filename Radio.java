@@ -17,6 +17,11 @@
 
 import java.lang.reflect.Array;
 
+/**
+ * Clase que representa una radio con funcionalidades básicas como encender/apagar,
+ * ajustar volumen y estación, y almacenar estaciones favoritas.
+ */
+
 public class Radio implements Radio_30 {
 
 	private boolean encendido;
@@ -29,7 +34,11 @@ public class Radio implements Radio_30 {
 	
 	
 	
-	
+	/**
+     * Establece el estado de encendido de la radio.
+     * 
+     * @param estado El estado de encendido de la radio (true para encendido, false para apagado).
+     */
 	
 	@Override
 	public void setEncendido(boolean estado) {
@@ -37,10 +46,21 @@ public class Radio implements Radio_30 {
 		this.encendido = estado;
 	}
 
+	 /**
+     * Establece el volumen de la radio.
+     * 
+     * @param volumen El nivel de volumen a establecer (0-100).
+     */
+
 	@Override
 	public void setVolumen(int volumen) {
 		this.volumen = volumen;
 	}
+
+	/**
+     * Método para aumentar el volumen de la radio en incrementos de 5,
+     * no excediendo el máximo de 100.
+     */
 
 	public void subirVolumen() {
 		if (volumen < 100){
@@ -51,6 +71,11 @@ public class Radio implements Radio_30 {
 		}
 	}
 
+	/**
+     * Método para disminuir el volumen de la radio en decrementos de 5,
+     * no cayendo por debajo de 0.
+     */
+
 	public void bajarVolumen() {
 		if (volumen > 0){
 			volumen = volumen - 5;
@@ -59,6 +84,15 @@ public class Radio implements Radio_30 {
 				pr("El volumen ya llego al minimo");
 			}
 	}
+
+	/**
+     * Establece la estación actual de la radio, ajustándola a los límites
+     * permitidos dependiendo de la banda (AM o FM).
+     *
+     * @param emisora La
+	frecuencia de la estación a sintonizar.
+	* @param banda La banda en la que se encuentra la estación (1 para FM, 2 para AM).
+	*/
 
 	@Override
 	public void setEstacion(float emisora, int banda) {
@@ -119,16 +153,34 @@ public class Radio implements Radio_30 {
 		
 	}
 
+	/**
+	 * Obtiene el estado actual de encendido de la radio.
+	 *
+	 * @return Estado actual de encendido de la radio (true si está encendida, false si está apagada).
+	 */
+
 	@Override
 	public boolean getEncendido() {
 		// TODO Auto-generated method stub
 		return encendido;
 	}
 
+	/**
+	 * Obtiene la estación actual de la radio.
+	 *
+	 * @return La frecuencia de la estación actual.
+	 */
+
 	@Override
 	public float getEstacion() {
 		return estacion;
 	}
+
+	/**
+	 * Obtiene la banda actual de la radio.
+	 *
+	 * @return La banda actual (1 para FM, 2 para AM).
+	 */
 
 	@Override
 	public int getBanda() {
@@ -136,11 +188,25 @@ public class Radio implements Radio_30 {
 		return banda;
 	}
 
+	/**
+	 * Obtiene el nivel actual de volumen de la radio.
+	 *
+	 * @return El nivel de volumen actual.
+	 */
+
 	@Override
 	public int getVolumen() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	/**
+	 * Guarda una estación en el arreglo de estaciones favoritas.
+	 *
+	 * @param emisora La frecuencia de la estación a guardar.
+	 * @param banda La banda de la estación a guardar.
+	 * @param indice El índice en el arreglo de favoritos donde se almacenará la estación.
+	 */
 
 	@Override
 	public void guardarEstacion(float emisora, int banda, int indice) {
@@ -159,6 +225,13 @@ public class Radio implements Radio_30 {
 		}
 		pr("en la banda " + nom);
 	}
+
+	/**
+	 * Recupera una estación del arreglo de estaciones favoritas.
+	 *
+	 * @param indice El índice en el arreglo de favoritos del cual recuperar la estación.
+	 * @return La frecuencia de la estación favorita recuperada.
+	 */
 
 	@Override
 	public float recuperarEstacion(int indice) {
