@@ -53,7 +53,7 @@ public class Radio implements Radio_30 {
 
 	public void bajarVolumen() {
 		if (volumen > 0){
-			volumen = volumen + 5;
+			volumen = volumen - 5;
 			pr("El volumen actual es " + volumen +  "%");
 			}else {
 				pr("El volumen ya llego al minimo");
