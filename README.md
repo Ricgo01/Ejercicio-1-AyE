@@ -1,4 +1,4 @@
-README - Proyecto de Radio
+Proyecto de Radio
 ¡Bienvenido al proyecto de Radio!
 
 Descripción del Proyecto
